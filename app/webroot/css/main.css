@@ -1,0 +1,23 @@
+div, span, p, img, h1, h2, h3, ul, li, fieldset { margin: 0px; border: 0px; padding: 0px; }
+
+.cake-sql-log { display: none; } 
+
+body {
+	margin: 10px;
+	height: 100%;
+	background-color: #fafafa;
+	color: #333333;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	}
+
+a { color: #388fba; text-decoration: none; }
+a:hover { color: #ff791a; }
+
+#container {
+  background-color: #ffffff;
+  margin: 0px auto;
+  border: 1px solid #e5e5e5;
+  padding: 10px 15px;
+  width: 980px;
+  }

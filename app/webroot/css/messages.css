@@ -1,0 +1,14 @@
+.message
+  {
+	clear: both;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #ffe9d9;
+  }
+
+.success { background-color: #dcffd9; }
+.failure { background-color: #ffd9d9; }
+
+.error-message { margin-bottom: 0px; color: #990000; }
+
+.notice { background-color: #ffffd9; }

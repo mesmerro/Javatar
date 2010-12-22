@@ -1,0 +1,32 @@
+table
+  {
+	clear: both;
+	width: 100%;
+  margin: 0px auto;
+	border: 1px solid #cccccc;
+	border-right: 0px;
+	}
+th
+  {
+	background-color: #e5e5e5;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	padding: 5px;
+	text-align: center;
+	}
+table tr td
+  {
+	background-color: #ffffff;
+	border-right: 1px solid #cccccc;
+	padding: 4px 8px;
+	text-align: center;
+	}
+table tr.altrow td { background-color: #f2f2f2;	}
+td.nowrap, th.nowrap { white-space: nowrap; }
+th.small { width: 1px; }
+td.left {
+	text-align: left;
+	font-weight: bold;
+	}
+td a { margin: 0px 6px;	}
+th a { color: #333333; }

@@ -1,0 +1,1 @@
+<div id="flashMessage" class="message success"><? echo $message; ?></div>

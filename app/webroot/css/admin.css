@@ -1,0 +1,41 @@
+@import url("forms.css");
+@import url("messages.css");
+@import url("paging.css");
+@import url("tables.css");
+
+div, span, p, img, h1, h2, h3, ul, li { margin: 0px; border: 0px; padding: 0px; }
+
+.cake-sql-log { display: none; } 
+
+body {
+	margin: 10px;
+	height: 100%;
+	background-color: #fafafa;
+	color: #333333;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	}
+  
+a { color: #b30000; text-decoration: none; }
+a:hover { color: #00998c; }
+
+h1, h2, h3 { margin: 0px 0px 10px; }
+
+#container {
+  background-color: #ffffff;
+  margin: 0px auto;
+  border: 1px solid #e5e5e5;
+  padding: 10px 15px;
+  width: 780px;
+  }
+
+#navigation { float: left; width: 120px; font-size: 1.1em; }
+.actions { margin-bottom: 10px; }  
+#navigation li, .actions li { margin-bottom: 5px; list-style-type: none; }
+
+#content { float: right; margin-left: 10px; border-left: 1px dashed #e5e5e5; padding-left: 9px; width: 640px; }
+
+#logout { clear: both; padding-top: 10px; text-align: right; }
+
+#copyright { margin: 5px auto; width: 200px; text-align: center; font-size: 0.9em; }       
+#copyright img { margin-top: 5px; }

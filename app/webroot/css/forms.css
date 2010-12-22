@@ -1,0 +1,62 @@
+form
+  {
+	clear: both;
+	width: 100%;
+	}
+fieldset
+  {
+	margin: 0px 0px 10px;
+	border: 1px solid #cccccc;
+	padding: 6px;
+	}
+form div
+  {
+	clear: both;
+	margin-bottom: 10px;
+	padding: 5px;
+	}
+form div.submit
+  {
+	border: 0px;
+	padding: 0px;
+	clear: both;
+	}
+label
+  {
+	display: block;
+	margin-bottom: 5px;
+	}
+input, textarea, select
+  {
+  border: 1px solid #B3B3B3;
+  background-color: #f2f2f2;
+  line-height: 19px;
+	clear: both;
+	font-size: 1.4em;
+	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	padding: 2px;
+	width: 99%;
+	}
+textarea
+  {
+	font-size: 100%;
+	}
+select
+  {
+	width: 50%;
+	}
+div.radio label
+  {
+	margin: 0 0 6px 20px;
+  }
+input[type=submit]
+  {
+	display: inline;
+	font-size: 1em;
+	padding: 5px 10px;
+	width: auto;
+	vertical-align: bottom;
+	}
+.checkbox { margin: 0px 0px 3px 3px; padding: 0px; }	
+input[type=checkbox] { width: 1%; margin: 0px 5px 0px 0px; }
+.checkbox label { display: inline; margin: 0px; }

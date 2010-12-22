@@ -1,2 +1,34 @@
-Projekt serwisu na ASI.
-Grupa Javatar.
+### Grupa Javatar: ###
+* Przemys³aw Jaku³a
+* Kamil Kalfas
+* Pawe³ Mysior
+* £ukasz Wyszomirski
+
+### Wprowadzenie: ###
+Dokument dotyczy projektu realizowanego w ramach zajêæ z Architektury serwisów internetowych. Niniejszy dokument s³u¿y przedstawieniu przeznaczenia tworzonego systemu, jego g³ównych cech i przyjêtych za³o¿eñ.
+
+### Cele: ###
+Celem projektu jest napisanie aplikacji bazowej pod ka¿dy przysz³y projekt. Wiele funkcji aplikacji internetowych powtarza siê, w ka¿dym projekcie. Dobrze jest mieæ podstawowy "serwis", który pozwoli szybciej rozpocz¹æ pracê nad kolejnymi projektami.
+
+### Wizja projektu: ###
+* rejestracja i logowanie u¿ytkowników:
+** logowanie za pomoc¹ facebooka, gmaila (?)
+** gravatary
+** zmiana danych
+** przypominanie has³a
+** rejestracja z systemem podobnym do CAPTHA
+** aktywacja mailem
+
+* aktualnoœci:
+** mo¿liwoœæ dodawania i wybierania tagów dla aktualnoœci
+** komentarze pod aktualnoœciami
+** szybka moderacja komentarzy
+
+* podstrony
+
+* zaawansowany system uprawnieñ u¿ytkowników
+
+* wszystko sterowane z panelu administracyjnego
+
+### Realizacja techniczna: ###
+Ca³oœæ zostanie oparta na frameworku CakePHP (1.3) we wspó³pracy z baz¹ danych MySQL (5.0).

@@ -3,6 +3,11 @@ class Post extends AppModel {
 	
   var $order = 'Post.created DESC';
   
+  var $virtualFields = array(
+    'short_body' => 'SUBSTRING_INDEX(Post.body, "<full_body>", "1")',
+    'full_body' => 'REPLACE(Post.body, "<full_body>", "")' 
+    );
+    
   var $validate = array(
     'title' => array(
       'rule1' => array(
@@ -33,7 +38,7 @@ class Post extends AppModel {
   var $hasMany = array(
     'Comment' => array(
 			'className'  => 'Comment',
-			'foreignKey' => 'user_id',
+			'foreignKey' => 'post_id',
 			'dependent'  => false
       )
     );
@@ -47,6 +52,39 @@ class Post extends AppModel {
       'unique'                => true
       )
     );
+    
+  function checkIfUserHasAvatar($image)
+    {
+    if (!empty($image))
+      {
+      return $image;
+      } else {
+      return 'http://lfc.pl/images/default-avatar.gif';
+      }
+    }
+    
+  function getPostWithComments($id = null)
+    {
+    $this->unbindModel(array('hasMany' => array('Comment')));
+		$conditionsForPost = array(
+      'conditions' => array('Post.id' => $id),
+      'fields' => array('Post.id', 'Post.created', 'Post.title', 'Post.full_body', 'User.username')
+      );
+    $post = $this->find('first', $conditionsForPost);
+      
+    $this->Comment->unbindModel(array('belongsTo' => array('Post')));
+    $conditionsForComments = array(
+      'conditions' => array('Comment.post_id' => $id),
+      'fields' => array('Comment.id', 'Comment.hour', 'Comment.body', 'User.username', 'User.avatar')
+      );
+    $comments = array('Comment' => $this->Comment->find('all', $conditionsForComments));      
+    for ($i = 0; $i < count($comments['Comment']); $i++)
+      {
+      $comments['Comment'][$i]['User']['avatar'] = $this->checkIfUserHasAvatar($comments['Comment'][$i]['User']['avatar']);
+      }
+      
+		return array_merge($post, $comments);
+    }
 
 }
 ?>

@@ -10,7 +10,7 @@
     <?php
     echo $form->input('id', array('type' => 'hidden'));
     echo $form->input('username', array('label' => 'Nazwa'));
-    echo $form->input('newPassword', array('label' => 'Hasło', 'type' => 'password', 'value' => ''));
+    echo $form->input('new_password', array('label' => 'Hasło', 'type' => 'password', 'value' => ''));
     echo $form->input('type', array('label' => 'Typ', 'type' => 'select', 'options' => $userTypes));
     ?>
   </fieldset>

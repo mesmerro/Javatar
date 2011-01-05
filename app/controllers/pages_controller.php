@@ -1,11 +1,17 @@
 <?php
 class PagesController extends AppController {
 
-  var $displayName = 'strona';
-
   var $paginate = array(
-    'limit' => 30
+    'limit' => 20
     );
+  
+  function show($page = null)
+		{
+		$page = $this->Page->findByNiceUrl($page);    
+    $this->set('field', $this->Page->find('first', array('conditions' => array('Page.id' => $page['Page']['id']))));
+		}
+    
+  ######################################################################################################
   
   function admin_index()
 		{
@@ -20,47 +26,35 @@ class PagesController extends AppController {
 			$this->Page->create();
 			if ($this->Page->save($this->data))
 				{
-				$this->Session->setFlash('Dodano '.$this->displayName, 'success');
+				$this->Session->setFlash('Dodano.', 'default', array('class' => 'success'));
         $this->redirect(array('action' => 'index'));
 				}
 			}
 		}
-
-	function admin_edit($id = null)
-		{
-		$this->Page->id = $id;
-    if (!$id && empty($this->data))
-			{
-			$this->Session->setFlash('Nieprawidłowa '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'index'));
-			}
-		if (!empty($this->data))
-			{
-			if ($this->Page->save($this->data))
-				{
-				$this->Session->setFlash('Edytowano '.$this->displayName, 'success');
-				$this->redirect(array('action' => 'index'));
-				}
-			}
-		if (empty($this->data))
-			{
-			$this->data = $this->Page->read(null, $id);
-			}
-		}
-
-	function admin_delete($id = null)
-		{
-		if (!$id)
-			{
-			$this->Session->setFlash('Nieprawidłowa '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'index'));
-			}
-		if ($this->Page->delete($id))
-			{
-			$this->Session->setFlash('Usunięto '.$this->displayName, 'success');
-			$this->redirect(array('action' => 'index'));
-			}
-		}
+    
+  function admin_edit($id = null)
+    {
+    $this->Page->id = $id;
+    if (empty($this->data))
+      {
+		  $this->data = $this->Page->read();
+      } else {
+		  if ($this->Page->save($this->data))
+        {
+        $this->Session->setFlash('Edytowano.', 'default', array('class' => 'success'));
+        $this->redirect(array('action' => 'index'));
+		    }
+      }
+    }
+    
+  function admin_delete($id = null)
+    {
+    if ($this->Page->delete($id))
+      {
+		  $this->Session->setFlash('Usunięto.', 'default', array('class' => 'success'));
+		  $this->redirect(array('action' => 'index'));
+      }
+    }
 
 }
 ?>

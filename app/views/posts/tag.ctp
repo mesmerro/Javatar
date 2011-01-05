@@ -9,5 +9,22 @@ foreach ($fields as $field)
 </div>
 <?php
   }
+if ($this->Paginator->hasPage(2))
+  {
 ?>
-<a href="/archive/" class="right">» Przejdź do archiwum</a>
+<div class="paging">
+  <?php
+  $this->Paginator->options(array('url' => $this->passedArgs));
+  $this->Paginator->options(array('url'=> array(
+    'controller' => 'posts', 
+    'action' => 'tag',
+    'tag' => $this->params['tag'])
+  ));
+  echo $this->Paginator->prev('« Poprzednia ', null, null);
+	echo $this->Paginator->numbers();
+	echo $this->Paginator->next(' Następna »', null, null);	
+?>
+</div>
+<?php
+  }
+?>

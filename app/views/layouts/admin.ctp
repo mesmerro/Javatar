@@ -12,6 +12,7 @@
   <div id="navigation">
     <ul>
       <li><?php echo $html->link('Newsy', array('controller' => 'posts', 'action' => 'index')); ?></li>
+      <li><?php echo $html->link('Pliki', array('controller' => 'uploads', 'action' => 'index')); ?></li>
       <li><?php echo $html->link('Strony', array('controller' => 'pages', 'action' => 'index')); ?></li>
       <li><?php echo $html->link('Tagi', array('controller' => 'tags', 'action' => 'index')); ?></li>
       <li><?php echo $html->link('Użytkownicy', array('controller' => 'users', 'action' => 'index')); ?></li>
@@ -28,6 +29,6 @@
   </div>
   <?php if ($user) { ?><div id="logout"><?php echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?></div><?php } ?>
 </div>
-<div id="copyright"><a href="mailto:pawelmysior@gmail.com">Paweł Mysior</a><br /><a href="http://cakephp.org/"><img src="/img/cake.power.gif" alt="CakePHP Power" /></a></div>
+<div id="copyright">created 2010 by <span class="bold"><a href="http://javatar.lfc.pl">JavatarTeam</a></span><br /><a href="http://cakephp.org/"><img src="/img/cake.power.gif" alt="CakePHP Power" /></a></div>
 </body>
 </html>

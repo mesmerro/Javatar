@@ -1,11 +1,11 @@
 <?php
 class PermissionsController extends AppController {
-
-  var $displayName = 'uprawnienie';
   
   var $paginate = array(
-    'limit' => 15
+    'limit' => 20
     );
+    
+  ######################################################################################################
     
   function admin_index()
 		{
@@ -19,47 +19,35 @@ class PermissionsController extends AppController {
 			$this->Permission->create();
 			if ($this->Permission->save($this->data))
 				{
-				$this->Session->setFlash('Dodano '.$this->displayName, 'success');
+				$this->Session->setFlash('Dodano.', 'default', array('class' => 'success'));
         $this->redirect(array('action' => 'index'));
 				}
 			}
 		}
-
+		
 	function admin_edit($id = null)
-		{
-		$this->Permission->id = $id;
-    if (!$id && empty($this->data))
-			{
-			$this->Session->setFlash('Nieprawidłowy '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'index'));
-			}
-		if (!empty($this->data))
-			{
-			if ($this->Permission->save($this->data))
-				{
-				$this->Session->setFlash('Edytowano '.$this->displayName, 'success');
-				$this->redirect(array('action' => 'index'));
-				}
-			}
-		if (empty($this->data))
-			{
-			$this->data = $this->Permission->read(null, $id);
-			}
-		}
-
-	function admin_delete($id = null)
-		{
-		if (!$id)
-			{
-			$this->Session->setFlash('Nieprawidłowy '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'index'));
-			}
-		if ($this->Permission->delete($id))
-			{
-			$this->Session->setFlash('Usunięto '.$this->displayName, 'success');
-			$this->redirect(array('action' => 'index'));
-			}
-		}
+    {
+    $this->Permission->id = $id;
+    if (empty($this->data))
+      {
+		  $this->data = $this->Permission->read();
+      } else {
+		  if ($this->Permission->save($this->data))
+        {
+        $this->Session->setFlash('Edytowano.', 'default', array('class' => 'success'));
+        $this->redirect(array('action' => 'index'));
+		    }
+      }
+    }
+    
+  function admin_delete($id = null)
+    {
+    if ($this->Permission->delete($id))
+      {
+		  $this->Session->setFlash('Usunięto.', 'default', array('class' => 'success'));
+		  $this->redirect(array('action' => 'index'));
+      }
+    }
 
 }
 ?>

@@ -9,6 +9,7 @@
   <fieldset>
     <?php
     echo $form->input('title', array('label' => 'Tytuł'));
+    echo $form->input('nice_url', array('label' => 'Nice URL'));
     echo $form->input('body', array('label' => 'Treść', 'type' => 'textarea'));
     ?>
   </fieldset>

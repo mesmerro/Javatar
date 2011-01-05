@@ -1,6 +1,8 @@
 <?php
 class AppController extends Controller {
 
+  var $uses = array('Page');
+  
   var $components = array('Auth', 'Session');
 	
 	var $helpers = array('Form', 'Html', 'Js', 'Session', 'Text');
@@ -29,13 +31,9 @@ class AppController extends Controller {
         }
       } else {
       $this->Auth->allow('*');
-      if ($this->name == 'Posts')
-        {
-        $this->layout = 'default';
-        } else{
-        $this->layout = 'page';
-        }
 			}
+			
+		$this->set('pages', $this->Page->find('all'));
 		}
 		
 	function isAuthorized()

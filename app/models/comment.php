@@ -3,6 +3,10 @@ class Comment extends AppModel {
 	
   var $order = 'Comment.created DESC';
   
+  var $virtualFields = array(
+    'hour' => 'DATE_FORMAT(Comment.created, "%H:%i")'
+    );
+    
   var $validate = array(
     'body' => array(
       'rule1' => array(

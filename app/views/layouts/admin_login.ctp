@@ -12,6 +12,6 @@
   echo $this->Session->flash('auth');
   echo $content_for_layout;
   ?>
-<div id="copyright"><a href="mailto:pawelmysior@gmail.com">Paweł Mysior</a><br /><a href="http://cakephp.org/"><img src="/img/cake.power.gif" alt="CakePHP Power" /></a></div>
+<div id="copyright">created 2010 by <span class="bold"><a href="http://javatar.lfc.pl">JavatarTeam</a></span><br /><a href="http://cakephp.org/"><img src="/img/cake.power.gif" alt="CakePHP Power" /></a></div>
 </body>
 </html>

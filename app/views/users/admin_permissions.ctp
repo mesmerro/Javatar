@@ -1,5 +1,5 @@
 <?php if(isset($notice)) { ?>
-<div class="message notice">
+<div id="flashMessage" class="notice">
   <?php echo $notice; ?>
 </div>
 <?php } ?>

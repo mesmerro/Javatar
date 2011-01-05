@@ -1,52 +1,55 @@
 <?php
 class CommentsController extends AppController {
 
-  var $displayName = 'komentarz';
-  
   var $paginate = array(
-    'limit' => 15
+    'limit' => 20
     );
     
-  function admin_index($post_id)
+  function add()
+    {
+    if (!empty($this->data))
+			{
+			$this->data['Comment']['user_id'] = $this->Auth->user('id');
+			$this->Comment->create();
+			if ($this->Comment->save($this->data))
+				{
+				$this->redirect($this->referer());
+        }
+			}
+    }  
+  
+  ######################################################################################################
+  
+  function admin_index($post_id = null)
 		{
 		$this->Comment->recursive = 0;
 		$this->set('fields', $this->paginate('Comment', array('Comment.post_id' => $post_id)));
 		}
-
+		
 	function admin_edit($id = null)
-		{
-		if (!$id && empty($this->data))
-			{
-			$this->Session->setFlash('Nieprawidłowy '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'list'));
-			}
-		if (!empty($this->data))
-			{
-			if ($this->Comment->save($this->data))
-				{
-				$this->Session->setFlash('Edytowano '.$this->displayName, 'success');
-				$this->redirect(array('action' => 'list', 'id' => $this->data['Comment']['post_id']));
-				}
-			}
-		if (empty($this->data))
-			{
-			$this->data = $this->Comment->read(null, $id);
-			}
-		}
-
+    {
+    $this->Comment->id = $id;
+    if (empty($this->data))
+      {
+		  $this->data = $this->Comment->read();
+      } else {
+		  if ($this->Comment->save($this->data))
+        {
+        $this->Session->setFlash('Edytowano.', 'default', array('class' => 'success'));
+        $this->redirect(array('action' => 'index', $this->data['Comment']['post_id']));
+		    }
+      }
+    }
+		
 	function admin_delete($id = null)
-		{
-		if (!$id)
-			{
-			$this->Session->setFlash('Nieprawidłowy '.$this->displayName, 'failure');
-			$this->redirect(array('action' => 'list'));
-			}
-		if ($this->Comment->delete($id))
-			{
-			$this->Session->setFlash('Usunięto '.$this->displayName, 'success');
-			$this->redirect(array('action' => 'list'));
-			}
-		}
+    {
+    $comment = $this->Comment->findById($id);
+    if ($this->Comment->delete($id))
+      {
+		  $this->Session->setFlash('Usunięto.', 'default', array('class' => 'success'));
+		  $this->redirect(array('action' => 'index', $comment['Comment']['post_id']));
+      }
+    }
 
 }
 ?>

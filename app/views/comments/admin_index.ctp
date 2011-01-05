@@ -16,9 +16,9 @@ foreach ($fields as $field)
 	if ($i++ % 2 == 0) { $class = ' class="altrow"'; }
   echo '<tr '.$class.'>'; ?>
     <td><?php echo $field['Comment']['id']; ?></td>
-    <td class="left"><?php echo $text->truncate($field['Comment']['body'], 45, '...', false, true);; ?></td>
+    <td class="left"><?php echo $this->Text->truncate($field['Comment']['body'], 35); ?></td>
     <td><?php echo $field['User']['username']; ?></td>
-    <td class="nowrap"><?php echo $text->truncate($field['Post']['title'], 20, '...', false, true); ?></td>
+    <td class="nowrap"><?php echo $this->Text->truncate($field['Post']['title'], 20); ?></td>
     <td class="nowrap"><?php echo $field['Comment']['created']; ?></td>
     <td>
       <?php
